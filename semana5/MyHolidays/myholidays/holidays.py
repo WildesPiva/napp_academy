@@ -1,4 +1,5 @@
 from datetime import date
 
 class MyCalendar:
-    pass
+    def __init__(self, *args):
+        self.datas = []
