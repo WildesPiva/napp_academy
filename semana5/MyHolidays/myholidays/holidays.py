@@ -14,6 +14,9 @@ class MyCalendar:
             if isinstance(item, date):
                 self.datas.append(item)
             elif isinstance(item, str):
-                item = datetime.strptime(item, '%d/%m/%Y').date()
+                try:
+                    item = datetime.strptime(item, '%d/%m/%Y').date()
+                except ValueError:
+                    continue
                 self.datas.append(item)
             
