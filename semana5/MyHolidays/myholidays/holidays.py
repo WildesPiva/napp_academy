@@ -7,17 +7,22 @@ class MyCalendar:
         self.datas = []
         self.parse_dates(args)
 
-    
+
+    def extract_date(self, date_to_extract):
+        if isinstance(date_to_extract, date):
+            return date_to_extract
+        elif isinstance(date_to_extract, str):
+            try:
+                return datetime.strptime(date_to_extract, '%d/%m/%Y').date()
+            except ValueError:
+                return None
+
+
     def parse_dates(self, dates_to_parse):
         for item in dates_to_parse:
-            if isinstance(item, date):
-                self.datas.append(item)
-            elif isinstance(item, str):
-                try:
-                    item = datetime.strptime(item, '%d/%m/%Y').date()
-                    self.datas.append(item)
-                except ValueError:
-                    continue
+            date_extracted = self.extract_date(item)
+            if date_extracted and date_extracted not in self.datas:
+                self.datas.append(date_extracted)
 
 
     def add_holiday(self, *args):
