@@ -1,7 +1,5 @@
 from datetime import date, datetime
 
-from attr import dataclass
-
 class MyCalendar:
     def __init__(self, *args):
         self.datas = []
