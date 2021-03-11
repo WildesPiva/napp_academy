@@ -12,5 +12,5 @@ class ContaPessoaJuridica(Conta):
         Construtor da classe ContaPessoaJuridica.
         Extrai do dicionário kwargs a profissao do correntista.
         """
+        kwargs['limite'] = kwargs.get('limite', 1500)
         super(ContaPessoaJuridica, self).__init__(**kwargs)
-        print(self.__dict__)

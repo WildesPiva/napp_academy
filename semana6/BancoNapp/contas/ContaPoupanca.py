@@ -13,8 +13,8 @@ class ContaPoupanca(Conta):
         Construtor da classe PessoaFísica.
         Extrai do dicionário kwargs a profissao do correntista.
         """
+        kwargs['limite'] = kwargs.get('limite', 0)            
         super(ContaPoupanca, self).__init__(**kwargs)
-        self.limite = kwargs.get('limite', 0)        
 
 
     def saque(self, valor):

@@ -20,9 +20,7 @@ class Conta:
         self.extrato.append(('I', self.saldo))
         self.profissao = kwargs.get('profissao', '')
         self.empresa = kwargs.get('empresa', '')
-        limite = 1500 if 'ContaPessoaJuridica' in str(self.__class__) else 500
-        self.limite = kwargs.get('limite', limite)
-
+        self.limite = kwargs.get('limite', 500)
 
     def deposito(self, valor):
         """
