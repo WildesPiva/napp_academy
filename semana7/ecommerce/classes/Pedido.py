@@ -7,38 +7,26 @@ class Pedido:
 
     def __init__(self, cliente):
         if isinstance(cliente, Cliente):
-            self._cliente = cliente
-            self._itens = []
+            self.cliente = cliente
+            self.itens = []
             return
         raise TypeError('Não é possível instanciar um Pedido sem um cliente')
 
-    @property
-    def itens(self):
-        return self._itens
-
-    @itens.setter
-    def itens(self, value):
-        self._itens = value
-
-    @property
-    def cliente(self):
-        return self._cliente
-
     def __str__(self):
-        return 'Pedido de ' + str(self._cliente)
+        return 'Pedido de ' + str(self.cliente)
 
     def __repr__(self):
-        return 'Pedido de ' + str(self._cliente)
+        return 'Pedido de ' + str(self.cliente)
 
     def add_item(self, produto):
         if isinstance(produto, Produto):
-            self._itens.append(produto)
+            self.itens.append(produto)
             return
         raise TypeError('Não foi passado um objeto produto')
 
     def quantidade_produto_no_pedido(self, ean):
         quantidade = 0
-        for produto in self._itens:
+        for produto in self.itens:
             if produto.ean == ean:
                 quantidade = quantidade + 1
         return quantidade
