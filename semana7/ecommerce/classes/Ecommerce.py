@@ -4,16 +4,8 @@ from ecommerce.classes.Pedido import Pedido
 
 class Loja:
     def __init__(self, nome):
-        self._nome = nome
+        self.nome = nome
         self._estoque = []
-
-    @property
-    def nome(self):
-        return self._nome
-
-    @nome.setter
-    def nome(self, value):
-        self._nome = value
 
     @property
     def estoque(self):
