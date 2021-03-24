@@ -10,7 +10,7 @@ class TestProduto:
     def test_instanciar_objeto_somente_ean(self):
         objeto = Produto(ean='12345678911')
         assert objeto.ean, '12345678911'
-        assert objeto._preco == 0
+        assert objeto.preco == 0
 
     def test_instanciar_objeto_preco_negativo(self):
         with pytest.raises(ValueError) as error:
