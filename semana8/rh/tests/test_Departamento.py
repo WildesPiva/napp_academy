@@ -49,10 +49,10 @@ class TestDepartamento:
         assert len(departamento.colaboradores) == 2
 
     def test_verificar_aniversariantes(self):
-        retorno = [('João Oliveira', '1992-03-18'),
-                   ('Luis Fernando', '2000-03-18')]
         dt1 = date.today() - timedelta(days=4)
         hoje = date.today()
+        retorno = [('João Oliveira', f'1992-03-{hoje.day}'),
+                   ('Luis Fernando', f'2000-03-{hoje.day}')]
         depto = Departamento('Departamento XYZ')
         depto.informar_responsavel('José da Silva', dt1.day, dt1.month, 1990)
         depto.add_colaborador('João Oliveira', hoje.day, hoje.month, 1992)
