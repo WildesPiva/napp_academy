@@ -3,19 +3,11 @@ from datetime import date
 
 class Colaborador:
     def __init__(self, nome, dia=None, mes=None, ano=None):
-        self._nome = nome
+        self.nome = nome
         try:
             self._aniversario = date(ano, mes, dia)
         except TypeError:
-            raise TypeError('Informe dia, mês e ano')
-
-    @property
-    def nome(self):
-        return self._nome
-
-    @nome.setter
-    def nome(self, value):
-        self._nome = value
+            raise TypeError('Informe dia, mês, ano ou verifique se são validos')
 
     @property
     def aniversario(self):
@@ -29,7 +21,7 @@ class Colaborador:
         return False
 
     def __str__(self):
-        return self._nome
+        return self.nome
 
     def __repr__(self):
-        return 'Colaborador: ' + self._nome
+        return 'Colaborador: ' + self.nome
