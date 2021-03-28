@@ -9,7 +9,7 @@ class TestColaborador:
         assert isinstance(objeto, Colaborador)
 
     def test_class_declared_fail(self):
-        msg_erro = "Informe dia, mês e ano"
+        msg_erro = "Informe dia, mês, ano ou verifique se são validos"
         with pytest.raises(TypeError) as error:
             Colaborador('John Doe')
         assert str(error.value) == msg_erro
