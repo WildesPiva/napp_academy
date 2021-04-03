@@ -1,9 +1,9 @@
-def vacina_ja(idade, **kwargs):
-    profissao_com_prioridade = ['medico', 'enfermeiro']
-    profissao_com_prioridade += ['medica', 'enfermeira']
-    profissao_com_prioridade += ['auxiliar de enfermagem']
-    profissao_com_prioridade += ['profissionais da saude']
-    profissao = kwargs.get('profissao', '').lower()
+def vacina_ja(idade, profissao=''):
+    profissao_com_prioridade = ['medico', 'enfermeiro', \
+                                'medica', 'enfermeira', \
+                                'auxiliar de enfermagem', \
+                                'profissionais da saude']
+    # profissao = kwargs.get('profissao', '').lower()
     if profissao in profissao_com_prioridade:
         return 'Autorizado Vacinação'
     if idade >= 69:
