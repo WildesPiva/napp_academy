@@ -1,10 +1,9 @@
-lista_meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio']
-lista_meses += ['junho', 'julho', 'agosto', 'setembro']
-lista_meses += ['outubro', 'novembro', 'dezembro']
+from datetime import datetime
+lista_meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', \
+               'junho', 'julho', 'agosto', 'setembro', 'outubro', \
+               'novembro', 'dezembro']
 
-meses = dict(zip(
-    list(range(1, 13)),
-    lista_meses))
+meses = dict( zip(list(range(1, 13)), lista_meses) )
 
 
 def data_por_extenso(data):
@@ -19,8 +18,14 @@ def data_por_extenso(data):
     Returns:
         [str]: Data por extenso
     """
-    data = data.split('/')
+    if not isinstance(data, str):
+        raise Exception('A data precisa ser uma string')
+
     try:
-        return data[0] + ' de ' + meses[int(data[1])] + ' de ' + data[2]
-    except KeyError:
-        raise KeyError('Mês inválido')
+        data = datetime.strptime(data, '%d/%m/%Y')
+    except ValueError:
+        raise ValueError(f"A data '{data}' não bate com o formato 'dd/MM/aaaa'")
+
+    return f'{data.day} de {meses[int(data.month)]} de {data.year}'
+
+print(data_por_extenso('1/5/2020'))
