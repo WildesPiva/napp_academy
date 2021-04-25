@@ -5,7 +5,7 @@ from produtos.classes.Caracteristicas import Tamanho600ml
 import pytest
 
 
-class TestColaborador:
+class TestProdutos:
     def test_class_Pepsi(self):
         msg = 'Pepsi tamanho: 600ml.'
         objeto = Pepsi(Tamanho600ml())
