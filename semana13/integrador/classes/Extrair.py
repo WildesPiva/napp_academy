@@ -15,7 +15,7 @@ class ExtrairDados(ABC):
 
 class ERP1(ExtrairDados):
     def get_query(self):
-        return "SELECT produto, total, vendido_em FROM vendas;"
+        return "SELECT total, vendido_em FROM vendas;"
 
     def get_query_report(self):
         return "SELECT vendido_em, sum(total) FROM vendas GROUP BY vendido_em;"
