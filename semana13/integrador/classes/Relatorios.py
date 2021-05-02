@@ -1,3 +1,4 @@
+import csv
 from abc import ABC, abstractmethod
 
 
@@ -18,4 +19,17 @@ class Relatorio_TXT(Relatorios):
                 f.write(str(i[0]) + 8 * " ")
                 f.write(str(i[1]) + 7 * " ")
                 f.write('\n')
+            return True
+
+
+class Relatorio_CSV(Relatorios):
+    def criar_relatorio(self, lista, nome_arquivo):
+        nome_arquivo = nome_arquivo + '.csv'
+        fieldnames = ['DATA', 'VALOR']
+        title = ['Relatório de Vendas']
+        with open(nome_arquivo, "w") as fcsv:
+            writer = csv.writer(fcsv, delimiter=',')
+            writer.writerow(title)
+            writer.writerow(fieldnames)
+            writer.writerows(lista)
             return True
