@@ -25,7 +25,7 @@ class TestAbstracaoERP1(unittest.TestCase):
     def test_relatorio_nao_implementado(self):
         msg_erro = 'Formato de relatório não implementado'
         with pytest.raises(Exception) as error:
-            dicionario = {'erp': 'erp1', 'relatorio': 'csv'}
+            dicionario = {'erp': 'erp1', 'relatorio': 'xls'}
             Abstracao(**dicionario)
         assert str(error.value) == msg_erro
 
@@ -39,6 +39,13 @@ class TestAbstracaoERP1(unittest.TestCase):
 
     def test_metodo_criar_relatorio(self):
         objeto = Abstracao(**self.dicionario)
+        assert objeto.criar_relatorio()
+
+    def test_metodo_criar_relatorio_csv(self):
+        dicionario = {'erp': 'erp1',
+                      'db': 'integrador/dados/banco_ERP1.db',
+                      'relatorio': 'csv'}
+        objeto = Abstracao(**dicionario)
         assert objeto.criar_relatorio()
 
     def test_formato_dados_extraidos(self):
@@ -72,7 +79,7 @@ class TestAbstracaoERP2(unittest.TestCase):
     def test_relatorio_nao_implementado(self):
         msg_erro = 'Formato de relatório não implementado'
         with pytest.raises(Exception) as error:
-            dicionario = {'erp': 'erp1', 'relatorio': 'csv'}
+            dicionario = {'erp': 'erp1', 'relatorio': 'xls'}
             Abstracao(**dicionario)
         assert str(error.value) == msg_erro
 
@@ -86,6 +93,13 @@ class TestAbstracaoERP2(unittest.TestCase):
 
     def test_metodo_criar_relatorio(self):
         objeto = Abstracao(**self.dicionario)
+        assert objeto.criar_relatorio()
+
+    def test_metodo_criar_relatorio_csv(self):
+        dicionario = {'erp': 'erp2',
+                      'db': 'integrador/dados/banco_ERP2.db',
+                      'relatorio': 'csv'}
+        objeto = Abstracao(**dicionario)
         assert objeto.criar_relatorio()
 
     def test_formato_dados_extraidos(self):
