@@ -41,6 +41,14 @@ class TestAbstracaoERP1(unittest.TestCase):
         objeto = Abstracao(**self.dicionario)
         assert objeto.criar_relatorio()
 
+    def test_formato_dados_extraidos(self):
+        objeto = Abstracao(**self.dicionario)
+        dados = objeto.extrair_dados()
+        for linha in dados:
+            assert len(linha) == 2
+            assert type(linha[0]) == float
+            assert type(linha[1]) == str
+
 
 class TestAbstracaoERP2(unittest.TestCase):
     def setUp(self):
