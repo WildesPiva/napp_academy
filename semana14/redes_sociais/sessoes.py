@@ -28,6 +28,7 @@ class PersonalSection(Section):
     def __repr__(self):
         return 'Dados Pessoais'
 
+
 class AlbumSection(Section):
     def sobre(self):
         print("Sessao para fotos")
@@ -37,6 +38,7 @@ class AlbumSection(Section):
 
     def __repr__(self):
         return 'Sessão para fotos'
+
 
 class PublicationSection(Section):
     def describe(self):
