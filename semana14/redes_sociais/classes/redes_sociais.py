@@ -1,5 +1,9 @@
 from abc import ABC, abstractmethod
-from redes_sociais.classes.sessoes import PersonalSection, AlbumSection, PublicationSection
+from redes_sociais.classes.sessoes import (
+    PublicationSection,
+    PersonalSection,
+    AlbumSection,
+)
 
 
 class Profile(ABC):
