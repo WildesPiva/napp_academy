@@ -1,4 +1,4 @@
-from redes_sociais import facebook, linkedin
+from redes_sociais.classes.redes_sociais import facebook, linkedin
 
 
 if __name__ == "__main__":

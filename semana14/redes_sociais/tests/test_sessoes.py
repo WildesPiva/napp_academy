@@ -1,7 +1,7 @@
 import pytest
 from unittest import TestCase
 
-from redes_sociais.sessoes import (
+from redes_sociais.classes.sessoes import (
     PublicationSection,
     PersonalSection,
     AlbumSection,
