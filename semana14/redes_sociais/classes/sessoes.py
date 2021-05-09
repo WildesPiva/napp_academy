@@ -52,3 +52,14 @@ class PublicationSection(Section):
 
     def __repr__(self):
         return 'Sessão publicações'
+
+
+class UploadCode(Section):
+    def sobre(self):
+        print("Sessão para upload de código")
+
+    def __str__(self):
+        return 'Sessão para upload de código'
+
+    def __repr__(self):
+        return 'Sessão para upload de código'

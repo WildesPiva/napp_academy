@@ -5,6 +5,7 @@ from redes_sociais.classes.sessoes import (
     PublicationSection,
     PersonalSection,
     AlbumSection,
+    UploadCode,
     Section
 )
 
@@ -58,3 +59,20 @@ class TestPublicationSection(TestCase):
 
     def test_section_repr(self):
         assert repr(self.section) == 'Sessão publicações'
+
+
+class TestUploadCodeSection(TestCase):
+    def setUp(self):
+        self.section = UploadCode()
+
+    def test_section_subclass(self):
+        assert issubclass(UploadCode, Section)
+
+    def test_section_instance(self):
+        assert isinstance(self.section, UploadCode)
+
+    def test_section_str(self):
+        assert str(self.section) == 'Sessão para upload de código'
+
+    def test_section_repr(self):
+        assert repr(self.section) == 'Sessão para upload de código'

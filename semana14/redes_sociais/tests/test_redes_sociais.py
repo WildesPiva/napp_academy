@@ -4,7 +4,9 @@ from unittest import TestCase
 from redes_sociais.classes.redes_sociais import (
     Profile,
     facebook,
-    linkedin
+    linkedin,
+    github,
+    instagram
 )
 
 
@@ -12,7 +14,9 @@ class TestRedesSociais(TestCase):
     def setUp(self):
         self.redes_sociais = [
             'facebook',
-            'linkedin'
+            'linkedin',
+            'github',
+            'instagram'
         ]
 
     def test_redes_sub_class(self):
@@ -38,5 +42,15 @@ class TestRedesSociais(TestCase):
 
     def test_linkedin_get_sections(self):
         rede_social = linkedin()
+        sections = rede_social.getSections()
+        assert len(sections) == 2
+
+    def test_github_get_sections(self):
+        rede_social = github()
+        sections = rede_social.getSections()
+        assert len(sections) == 2
+
+    def test_instagram_get_sections(self):
+        rede_social = instagram()
         sections = rede_social.getSections()
         assert len(sections) == 2
