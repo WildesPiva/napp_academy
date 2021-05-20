@@ -27,11 +27,6 @@ class DiluteData:
 
     def _get_data(self, consider_column):
         self.csv_it, csv_it_copy = tee(self.csv_it)
-
-        # def fill(c):
-        #     return c.split(self.delimiter)[self.column_to_consider] == consider_column
-        # print(line for line in csv_it_copy if fill(line))
-
         for line in csv_it_copy:
             t = line.split(self.delimiter)[self.column_to_consider]
             if t == consider_column:
