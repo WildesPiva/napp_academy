@@ -5,7 +5,7 @@ import glob
 def palavra_no_arquivo(palavra, arquivo):
     with open(arquivo, 'r') as f:
         for line in f:
-            return palavra in line
+            return palavra.lower() in line.lower()
     return False
 
 
@@ -25,4 +25,5 @@ def encontrar_palavra(palavra):
 
 
 busca_napp1 = encontrar_palavra('napp')
+print(encontrar_palavra('napp'))
 busca_napp2 = encontrar_palavra('NaPp')
